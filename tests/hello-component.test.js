@@ -4,16 +4,40 @@
 import test from 'tape';
 
 // Component to test
-import helloComponent from '../web/assets/src/js/hello.component';
+import diamondComponent from '../web/assets/src/js/diamond.component';
 
-test('HelloComponent.sayHello() behaviour.', (assert) => {
-    const expected = 'Hello World!';
+test('----- DiamondComponent returned value when you pass in "A".', (assert) => {
+    const message = 'DiamondComponent returned value must be "A"';
+    const expected = 'A';
 
-    const hello = helloComponent();
-    const actual = hello.sayHello();
+    const diamond = diamondComponent();
+    const actual = diamond.render();
 
-    assert.equal(actual, expected,
-        'HelloComponent.sayHello() must return *Hello World!*');
+    assert.equal(actual, expected, message);
+
+    assert.end();
+});
+
+test('----- DiamondComponent returned value when you pass in "B".', (assert) => {
+    const message = 'DiamondComponent returned value must be " A\nB B\n A"';
+    const expected = ' A\nB B\n A';
+
+    const diamond = diamondComponent();
+    const actual = diamond.render();
+
+    assert.equal(actual, expected, message);
+
+    assert.end();
+});
+
+test('----- DiamondComponent returned value when you pass in "C".', (assert) => {
+    const message = 'DiamondComponent returned value must be "  A\n B B\nC   C\n  A"';
+    const expected = '  A\n B B\nC   C\n  A';
+
+    const diamond = diamondComponent();
+    const actual = diamond.render();
+
+    assert.equal(actual, expected, message);
 
     assert.end();
 });
