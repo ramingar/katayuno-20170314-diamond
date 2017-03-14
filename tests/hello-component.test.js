@@ -74,7 +74,7 @@ test('----- DiamondComponent returned value when you pass in "C".', (assert) => 
     assert.end();
 });
 
-test('----- DiamondComponent row method when you pass in "D" to the method and a bigger or equal letter to the factory.', (assert) => {
+test('----- DiamondComponent row method when you pass in "D" to the method.', (assert) => {
     const message = 'Diamond\'s row method returned value must be "D     D".';
     const expected = 'D     D';
 
@@ -85,20 +85,6 @@ test('----- DiamondComponent row method when you pass in "D" to the method and a
 
     assert.end();
 });
-
-test('----- DiamondComponent row method error control when you pass in "D" to the factory and "F" to the method.', (assert) => {
-    const message = 'Argument for Diamond\'s row method can\'t be a letter bigger than letter passed to the factory. ' +
-        'Row must be return "".';
-    const expected = '';
-
-    const diamond = diamondComponent('D');
-    const actual = diamond.row('F');
-
-    assert.equal(actual, expected, message);
-
-    assert.end();
-});
-
 
 test('----- DiamondComponent leftSpaces method.', (assert) => {
     const message = 'When you pass in "A" to the method and "D" to the factory, ' +
