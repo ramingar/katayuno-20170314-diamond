@@ -15,6 +15,9 @@ module.exports = function (grunt) {
             },
             tests: {
                 command: 'export BABEL_ENV=test && ./node_modules/.bin/babel-tape-runner tests/*.test.js | ./node_modules/.bin/faucet'
+            },
+            coverage: {
+                command: 'export BABEL_ENV=test && ./node_modules/.bin/nyc ./node_modules/.bin/babel-tape-runner tests/*.test.js'
             }
         },
         copy: {
@@ -58,4 +61,5 @@ module.exports = function (grunt) {
     grunt.registerTask('default', ['shell:removeBuild', 'copy:main', 'shell:rollupDev']);
     grunt.registerTask('dev', ['shell:removeBuild', 'copy:main', 'shell:rollupDev', 'watch']);
     grunt.registerTask('tests', ['shell:tests']);
+    grunt.registerTask('coverage', ['shell:coverage']);
 };
