@@ -33,8 +33,6 @@
 const diamond = function (letter = 'C') {
 
     const _letter = letter;
-    const _letterCode = letter.charCodeAt();
-
     const MIN_LETTER = 65;  // code for the lower letter allowed
 
     const addSpace = function (idx) {
